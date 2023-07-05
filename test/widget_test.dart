@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 //import 'package:make_team_work/main.dart';
 
-import '../lib/main.dart';
+import 'package:make_team_work/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
