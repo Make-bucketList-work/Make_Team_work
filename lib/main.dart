@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: '세준세준세준세준',
+
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -63,7 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.list),
+<<<<<<< HEAD
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+=======
       ),
+>>>>>>> 6004284c13dfd343d1182365930c03b7bc3157e1
     );
   }
 }
