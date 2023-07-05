@@ -10,11 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
-      title: '이걸 sdadasdsa'
-=======
-      title: 'minwoo민우민우민우',
->>>>>>> adf98cdf689097796bd669114a0fd6cbcff9efd1
+      title: '세준세준세준세준',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
