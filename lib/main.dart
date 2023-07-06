@@ -5,7 +5,7 @@ import 'package:make_team_work/ThirdTab.dart';
 import 'SecondTab.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
