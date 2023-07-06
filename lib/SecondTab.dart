@@ -23,10 +23,10 @@ class SecondTab extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Icon(
-                    Icons.face_rounded,
-                    color: Colors.white,
-                    size: 60,
+                  Image.asset(
+                    'images/gitlogo.png',
+                    width: 100,
+                    height: 100,
                   ),
                   Spacer(),
                   Column(
