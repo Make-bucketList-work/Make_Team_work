@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
-import 'package:make_team_work/main.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
->>>>>>> a99c828f50b3099a0974f9b270cb961c42e5b240
 import 'dart:convert';
 
 class SecondTab extends StatefulWidget {
