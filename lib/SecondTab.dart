@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
-class SecondTab extends StatefulWidget {
-  SecondTab({Key? key, this.selectedTabIndex}) : super(key: key);
-  final int? selectedTabIndex;
-  @override
-  State<SecondTab> createState() => _SecondTabState();
-}
-
-class _SecondTabState extends State<SecondTab> {
+class SecondTab extends StatelessWidget {
   final List<String> imageList = [];
+  SecondTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +66,10 @@ class _SecondTabState extends State<SecondTab> {
                     SizedBox(
                       width: 20,
                     ),
-                    GestureDetector(
-                      child: Text(
-                        'Se Jun',
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
-                      onTap: () {},
-                    )
+                    Text(
+                      'Se Jun',
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
                   ],
                 ),
               ),

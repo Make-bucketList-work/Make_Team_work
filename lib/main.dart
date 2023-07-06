@@ -31,17 +31,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedTabIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           TabBarView(
-            physics: NeverScrollableScrollPhysics(),
             children: [
               FirstTab(),
-              SecondTab(selectedTabIndex: selectedTabIndex),
+              SecondTab(),
               ThirdTab(),
               FourthTab(
                 bucketList: [],
