@@ -3,6 +3,7 @@ import 'package:make_team_work/FirstTab.dart';
 import 'package:make_team_work/FourthTab.dart';
 import 'package:make_team_work/ThirdTab.dart';
 import 'SecondTab.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +42,9 @@ class _HomePageState extends State<HomePage> {
               FirstTab(),
               SecondTab(),
               ThirdTab(),
-              FourthTab(),
+              FourthTab(
+                bucketList: [],
+              ),
             ],
           ),
           SafeArea(

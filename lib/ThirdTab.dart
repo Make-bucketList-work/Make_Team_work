@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'FourthTab.dart';
 
 void main() {
   runApp(ThirdTab());
@@ -79,14 +78,7 @@ class HomePage extends StatelessWidget {
                 width: double.infinity,
                 margin: EdgeInsets.only(top: 24),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FourthTab(), // 이동하려는 페이지
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: Text("기록하기"),
                 ),
               ),
@@ -125,14 +117,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.blue,
           elevation: 1,
           child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => FourthTab(),
-              ),
-            );
-          },
+          onPressed: () {},
         ),
       ),
     );

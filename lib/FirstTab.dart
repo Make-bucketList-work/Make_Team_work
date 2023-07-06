@@ -58,7 +58,9 @@ class FirstTab extends StatelessWidget {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
-            )
+            ),
+            IconButton(
+                onPressed: () {}, icon: Icon(CupertinoIcons.search_circle)),
           ],
         ),
       )),
