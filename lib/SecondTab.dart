@@ -15,10 +15,10 @@ class SecondTab extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(color: Colors.black), // 내용 영역을 흰색으로 설정
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
-                height: 80,
+                height: 100,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
