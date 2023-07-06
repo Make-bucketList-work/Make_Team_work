@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'first.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,12 +39,12 @@ class _HomePageState extends State<HomePage> {
           return Scaffold(
             body: Stack(
               children: [
-                TabBarView(
-                  children: FirstTab(),
-                  SecondTab(),
-                  ThirdTab(),
-                  FourthTab(),
-                ),
+                TabBarView(children: [
+                  FirstTab(),
+                  //SecondTab(),
+                  //ThirdTab(),
+                  //FourthTab(),
+                ]),
                 SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
