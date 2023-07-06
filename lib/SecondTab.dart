@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:make_team_work/main.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-class SecondTab extends StatelessWidget {
+class SecondTab extends StatefulWidget {
+  SecondTab({Key? key, this.selectedTabIndex}) : super(key: key);
+  final int? selectedTabIndex;
+  @override
+  State<SecondTab> createState() => _SecondTabState();
+}
+
+class _SecondTabState extends State<SecondTab> {
   final List<String> imageList = [];
-  SecondTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,10 +75,13 @@ class SecondTab extends StatelessWidget {
                     SizedBox(
                       width: 20,
                     ),
-                    Text(
-                      'Se Jun',
-                      style: TextStyle(color: Colors.white, fontSize: 30),
-                    ),
+                    GestureDetector(
+                      child: Text(
+                        'Se Jun',
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                      onTap: () {},
+                    )
                   ],
                 ),
               ),
