@@ -44,7 +44,9 @@ class _HomePageState extends State<HomePage> {
               FirstTab(),
               SecondTab(selectedTabIndex: selectedTabIndex),
               ThirdTab(),
-              FourthTab(),
+              FourthTab(
+                bucketList: [],
+              ),
             ],
           ),
           SafeArea(
