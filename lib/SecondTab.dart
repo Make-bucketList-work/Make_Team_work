@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:make_team_work/FirstTab.dart';
 import 'package:make_team_work/FourthTab.dart';
 import 'package:make_team_work/ThirdTab.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SecondTab extends StatelessWidget {
   SecondTab({Key? key}) : super(key: key);
@@ -212,7 +213,7 @@ class SecondTab extends StatelessWidget {
 }
 
 class MySelf extends StatefulWidget {
-  MySelf({super.key});
+  MySelf({Key? key}) : super(key: key);
 
   @override
   State<MySelf> createState() => _MySelfState();
@@ -223,7 +224,42 @@ class _MySelfState extends State<MySelf> {
   var age = 29;
   bool isLiked = false;
 
+  TextEditingController inputData = TextEditingController();
+  List<bool> isHeart = [];
   List<String> BucketList = [];
+
+  addBucketList(a) {
+    setState(() {
+      BucketList.add(a);
+      isHeart.add(false);
+    });
+  }
+
+  removeBucketList(a) {
+    setState(() {
+      BucketList.remove(a);
+    });
+  }
+
+  sortList() {
+    List<String> sortedList = [];
+    List<bool> sortedHearts = [];
+
+    for (int i = 0; i < BucketList.length; i++) {
+      if (isHeart[i]) {
+        sortedList.insert(0, BucketList[i]);
+        sortedHearts.insert(0, true);
+      } else {
+        sortedList.add(BucketList[i]);
+        sortedHearts.add(false);
+      }
+    }
+
+    setState(() {
+      BucketList = sortedList;
+      isHeart = sortedHearts;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -291,11 +327,117 @@ class _MySelfState extends State<MySelf> {
             ),
           ),
           SizedBox(height: 15),
-          Text(
-            'Bucket List',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(width: 50),
+              Text(
+                'Bucket List',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+              IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('Add Bucket List'),
+                          content: TextField(
+                            controller: inputData,
+                            decoration: InputDecoration(hintText: 'bucket'),
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  addBucketList(inputData.text);
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'add',
+                                  style: TextStyle(color: Colors.black),
+                                )),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'cancle',
+                                  style: TextStyle(color: Colors.black45),
+                                )),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  icon: Icon(Icons.arrow_drop_down))
+            ],
           ),
           SizedBox(height: 15),
+          Expanded(
+            child: ListView.builder(
+              itemCount: BucketList.length,
+              itemBuilder: (context, index) => ListTile(
+                title: Text(BucketList[index]),
+                leading: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isHeart[index] = !isHeart[index];
+                        sortList();
+                      });
+                    },
+                    icon: isHeart[index]
+                        ? Icon(
+                            Icons.favorite,
+                            color: Colors.orange.shade700,
+                          )
+                        : Icon(Icons.favorite_border)),
+                trailing: TextButton(
+                  child: Text(
+                    'Delete',
+                    style: TextStyle(color: Colors.brown),
+                  ),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(
+                            '삭제확인',
+                            style: TextStyle(color: Colors.black87),
+                          ),
+                          content: Text(
+                            'really?',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    removeBucketList(BucketList[index]);
+                                    Navigator.pop(context);
+                                  });
+                                },
+                                child: Text(
+                                  'delete',
+                                  style: TextStyle(color: Colors.black87),
+                                )),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'cancle',
+                                  style: TextStyle(color: Colors.black45),
+                                ))
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
