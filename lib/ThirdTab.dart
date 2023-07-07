@@ -52,6 +52,7 @@ class ThirdTab extends StatelessWidget {
                       width: 200,
                       fit: BoxFit.cover,
                     ),
+
                     Image.network(
                       'https://i.ytimg.com/vi/Fu1blWVi0Qo/maxresdefault.jpg',
                       height: 200,
@@ -64,6 +65,7 @@ class ThirdTab extends StatelessWidget {
                       width: 200,
                       fit: BoxFit.cover,
                     ),
+
                   ],
                 ),
                 TextField(
